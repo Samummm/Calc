@@ -26,14 +26,6 @@ public class RomanToArabic {
         }
     }
 
-    public static void main(String[] args) {
-
-        System.out.println(romanToArabic("XXXIV"));
-        System.out.println(arabicToRoman(3999));
-
-
-    }
-
     public static int romanToArabic(String input) {
         String romanNumeral = input.toUpperCase();
         int result = 0;
