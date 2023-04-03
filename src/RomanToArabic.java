@@ -45,7 +45,7 @@ public class RomanToArabic {
         }
 
         if (romanNumeral.length() > 0) {
-            throw new IllegalArgumentException(input + " cannot be converted to a Roman Numeral");
+            throw new IllegalArgumentException("Не верное выражение!");
         }
 
         return result;
@@ -53,7 +53,7 @@ public class RomanToArabic {
 
     public static String arabicToRoman(int number) {
         if ((number <= 0) || (number > 4000)) {
-            throw new IllegalArgumentException(number + " is not in range (0,4000]");
+            throw new IllegalArgumentException("Результат вычисления вне диапазона Римских чисел (0,4000]!");
         }
 
         List<RomanNumeral> romanNumerals = RomanNumeral.getReverseSortedValues();
