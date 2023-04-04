@@ -8,6 +8,11 @@ public class Calc {
         String str = console.nextLine();
         String[] words = str.split("[+,*,/,-]");
         if (words.length != 2) throw new IllegalArgumentException("Не верное выражение!");
+        System.out.println(calc(str));
+    }
+
+    public static String calc(String input){
+        String[] words = input.split("[+,*,/,-]");
         words[0] = words[0].trim();
         words[1] = words[1].trim();
         Boolean rm = false;
@@ -22,13 +27,16 @@ public class Calc {
             op1 = RomanToArabic.romanToArabic(words[0]);
             op2 = RomanToArabic.romanToArabic(words[1]);
         }
+        if (op1 < 1 | op1 > 10 | op2 < 1 | op2 > 10) throw new IllegalArgumentException("Не верное выражение!");
+        if (input.indexOf("-") != -1) rez = op1-op2;
+        if (input.indexOf("+") != -1) rez = op1+op2;
+        if (input.indexOf("*") != -1) rez = op1*op2;
+        if (input.indexOf("/") != -1) rez = op1/op2;
 
-        if (str.indexOf("-") != -1) rez = op1-op2;
-        if (str.indexOf("+") != -1) rez = op1+op2;
-        if (str.indexOf("*") != -1) rez = op1*op2;
-        if (str.indexOf("/") != -1) rez = op1/op2;
+        String out = null;
+        if (rm) out = RomanToArabic.arabicToRoman(rez);
+        else out = rez.toString();
 
-        if (rm) System.out.println(str + " = " + RomanToArabic.arabicToRoman(rez));
-        else System.out.println(str + " = " + rez);
+        return out;
     }
 }
